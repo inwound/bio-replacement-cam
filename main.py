@@ -12,12 +12,12 @@ def set_camera_properties(cap):
         'White Balance Manual': (2800, 6500, 2800, cv2.CAP_PROP_WB_TEMPERATURE),
         'Gamma': (72, 500, 100, cv2.CAP_PROP_GAMMA),
         'Sharpness': (0, 6, 3, cv2.CAP_PROP_SHARPNESS),
-        'Gain': (0, 100, 0, cv2.CAP_PROP_GAIN),
+        'Gain': (0, 100, 30, cv2.CAP_PROP_GAIN),
         'Hue': (-40, 40, 0, cv2.CAP_PROP_HUE),
         'Exposure Auto': (0, 1, 0, cv2.CAP_PROP_AUTO_EXPOSURE),
-        'Exposure Absolute': (1, 5000, 500, cv2.CAP_PROP_EXPOSURE),
-        'Focus Auto': (0, 1, 0, cv2.CAP_PROP_AUTOFOCUS),
-        'Focus Absolute': (1, 1023, 280, cv2.CAP_PROP_FOCUS),
+        'Exposure Absolute': (1, 5000, 3895, cv2.CAP_PROP_EXPOSURE),
+        'Focus Auto': (0, 1, 1, cv2.CAP_PROP_AUTOFOCUS),
+        'Focus Absolute': (1, 1023, 154, cv2.CAP_PROP_FOCUS),
     }
 
     for name, (min_val, max_val, default, prop) in properties.items():
@@ -63,12 +63,12 @@ def capture_frames():
             break
 
         # Get trackbar values
-        white_balance, exposure, focus = get_trackbar_values(window_name)
+        #white_balance, exposure, focus = get_trackbar_values(window_name)
 
         # Set camera properties based on trackbar values
-        cap.set(cv2.CAP_PROP_WB_TEMPERATURE, white_balance)
-        cap.set(cv2.CAP_PROP_EXPOSURE, exposure)
-        cap.set(cv2.CAP_PROP_FOCUS, focus)
+        #cap.set(cv2.CAP_PROP_WB_TEMPERATURE, white_balance)
+        #cap.set(cv2.CAP_PROP_EXPOSURE, exposure)
+        #cap.set(cv2.CAP_PROP_FOCUS, focus)
 
         cv2.imshow(window_name, frame)
 
